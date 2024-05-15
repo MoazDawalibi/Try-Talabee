@@ -12,7 +12,7 @@ import { toast } from 'react-toastify';
 import { USER_EMAIL } from '../../config/AppKey';
 import AuthHeader from './HeaderComponent';
 import { GenderOption, getRegisterInitialValues, getRegisterValidationSchema } from './FormUtils';
-// import { DatePicker } from 'antd';
+import { DatePicker } from 'antd';
 import TalabeeField from '../../Components/Utils/TalabeeField/TalabeeField';
 
 function RegisterForm({ handleLoginClick }: any) {
@@ -101,8 +101,8 @@ function RegisterForm({ handleLoginClick }: any) {
           <TalabeeField name="password" inputType='password'  placeholder={t("password")} />
         </div>
         <div className='login_dev birth_gender'>
-          {/* <DatePicker name="birthday" type="birthday" onChange={(e)=> setBirthday(e.format('YYYY/M/D'))} className='date_picker' placeholder={t("Birthday")} /> */}
-          {/* setBirthday(e?.$y+-+(e?.$M+1)+-+e?.$D) */}
+          <DatePicker name="birthday" type="birthday"  className='date_picker' placeholder={t("Birthday")} />
+          {/* onChange={(e)=> setBirthday(e.format('YYYY/M/D'))} */}
           <TalabeeField  type='Select'  name='gender'  onChange={(gender) => setGender(gender)}  option={GenderOption}  placeholder='Gender'  />
         </div>
 
