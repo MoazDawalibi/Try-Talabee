@@ -286,7 +286,9 @@
 "Selection Type":"Selection Type",
 "stores": "stores",
 "Birthday":"Birthday",
-"is requierd":"is requierd"
+"is requierd":"is requierd",
+"user":"User",
+"role":"role"
 
 
 }

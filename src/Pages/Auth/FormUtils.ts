@@ -2,8 +2,8 @@ import * as Yup from 'yup';
 
 
 export const GenderOption = [
-  {value:1,label:'Male'},
-  {value:2,label:'Female'},
+  {value:'male',label:'Male'},
+  {value:'female',label:'Female'},
 ]
 
 export const getLoginInitialValues = () => {
@@ -15,13 +15,12 @@ export const getLoginInitialValues = () => {
 
 export const getRegisterInitialValues = () => {
     return ({
-        name: '', 
-        email: "",
-        password: '',
-        country:"",
-        phone:"", 
-        birthday:"", 
-        gender:"" 
+        name: 'moaz', 
+        email: "moaz@gmail.com",
+        password: 'moaz',
+        phone:"1234", 
+        birthday:"2024-10-17", 
+        gender:"male" 
         })
     }
 

@@ -34,9 +34,9 @@ const TopBar = () => {
             ? <h1 onClick={() => {dispatch(logout())}} > {t("Logout")}</h1>
             : <div>
               <Link className='Link' to={'/profile'} onClick={()=>navigate('/profile' )} >
-                <span className='text'>
-                  <span>user </span>
-                  (<span>role</span>)
+                <span className='header_text'>
+                  <span>{t("user")} </span>
+                  (<span>{t("role")}</span>)
                 </span>
               <BsFillPersonFill />
               </Link>

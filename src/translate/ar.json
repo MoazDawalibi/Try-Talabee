@@ -288,6 +288,9 @@
 "Selection Type":"نوع الاختيار",
 "stores": "المتاجر",
 "Birthday":"يوم ميلادك",
-"is requierd":"مطلوب"
+"is requierd":"مطلوب",
+"user":"المستخدم",
+"role":"دور"
+
 
 }

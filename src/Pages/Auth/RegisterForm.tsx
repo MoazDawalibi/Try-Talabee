@@ -6,13 +6,13 @@ import { LoadingButton } from '../../Components/Utils/Loading/LoadingButton';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 //@ts-ignore
-import countryList from 'react-select-country-list'
+// import countryList from 'react-select-country-list'
 //@ts-ignore
 import { toast } from 'react-toastify';
 import { USER_EMAIL } from '../../config/AppKey';
 import AuthHeader from './HeaderComponent';
 import { GenderOption, getRegisterInitialValues, getRegisterValidationSchema } from './FormUtils';
-import { DatePicker,Select } from 'antd';
+import { DatePicker } from 'antd';
 import TalabeeField from '../../Components/Utils/TalabeeField/TalabeeField';
 
 function RegisterForm({ handleLoginClick }: any) {
@@ -20,22 +20,36 @@ function RegisterForm({ handleLoginClick }: any) {
   const { mutate, isSuccess, data , isLoading } = useRegister()
   const [t] = useTranslation()
   const dispatch = useDispatch()
-  const [value, setValue] = useState('')
-
+  const [gender , setGender] = useState();
+  const [birthday , setBirthday] = useState('2024-10-17');
+  
+  // console.log(gender);
+  
   const handelSubmit = (values: any) => {
-    mutate(
-      {
-        name: values['name'],
-        email: values['email'],
-        password: values['password'],
-        phone: values['phone'],
-        birthday: values['birthday'],
-        gender: values['gender'],
-      }
+    console.log(values);
+    // const value = [{
+    //   name: values['name'],
+    //   email: values['email'],
+    //   password: values['password'],
+    //   phone: values['phone'],
+    //   birthday: birthday,
+    //   gender: gender,}]
+      
+      // console.log(value);
+      
+    mutate(values
+      // {
+      //   name: values['name'],
+      //   email: values['email'],
+      //   password: values['password'],
+      //   phone: values['phone'],
+      //   birthday: values['birthday'],
+      //   gender: gender,
+      // }
     )
-      // navigate('/verfied', { replace: true })
+    // navigate('/verfied', { replace: true })
 
-   return localStorage.setItem(USER_EMAIL , values.email );
+  //  return localStorage.setItem(USER_EMAIL , values.email );
   }
 
 
@@ -48,21 +62,19 @@ function RegisterForm({ handleLoginClick }: any) {
   // }, [isSuccess, navigate, data , dispatch])
 
 
-  const options = useMemo(() => countryList().getData(), [])
+  // const options = useMemo(() => countryList().getData(), [])
   const formik = useFormikContext();
   
 
-  const SelecthandleChange = (value:any,label:any) => {
 
-    setValue(label?.label)
-
- };
  const form = useRef<any>(null);
 
 
 
   return (
     <div className="form-container sign-up">
+
+
       <Formik
         initialValues={getRegisterInitialValues()}
         validationSchema={getRegisterValidationSchema()}
@@ -86,11 +98,12 @@ function RegisterForm({ handleLoginClick }: any) {
         </div>
 
         <div className='login_dev'>
-          <TalabeeField name="password"  placeholder={t("password")} />
+          <TalabeeField name="password" inputType='password'  placeholder={t("password")} />
         </div>
         <div className='login_dev birth_gender'>
-          <DatePicker name="birthday" type="birthday" className='date_picker' placeholder={t("Birthday")} />
-          <TalabeeField  type='Select'  name='type'  option={GenderOption}  placeholder='Gender'  />
+          <DatePicker name="birthday" type="birthday" onChange={(e)=> setBirthday(e.format('YYYY/M/D'))} className='date_picker' placeholder={t("Birthday")} />
+          {/* setBirthday(e?.$y+-+(e?.$M+1)+-+e?.$D) */}
+          <TalabeeField  type='Select'  name='gender'  onChange={(gender) => setGender(gender)}  option={GenderOption}  placeholder='Gender'  />
         </div>
 
         <LoadingButton isLoading={isLoading} type="submit">{t("Sign Up")}</LoadingButton >

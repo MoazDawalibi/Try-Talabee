@@ -16,6 +16,7 @@ export interface TalabeeFieldProps {
   onChange?: (value: any) => void;
   Group?: boolean
   dir?:'ltr' | "rtl"
+  inputType?:String
 }
 
 const TalabeeField = (props: TalabeeFieldProps) => {
@@ -48,6 +49,7 @@ TalabeeField.defaultProps = {
   onChange: undefined,
   Group:false,
   dir : "ltr",
+  inputType: "text"
 
 };
 
