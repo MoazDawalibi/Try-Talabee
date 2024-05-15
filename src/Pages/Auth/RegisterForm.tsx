@@ -101,7 +101,7 @@ function RegisterForm({ handleLoginClick }: any) {
           <TalabeeField name="password" inputType='password'  placeholder={t("password")} />
         </div>
         <div className='login_dev birth_gender'>
-          <DatePicker name="birthday" type="birthday"  className='date_picker' placeholder={t("Birthday")} />
+          <DatePicker name="birthday"   className='date_picker' placeholder={t("Birthday")} />
           {/* onChange={(e)=> setBirthday(e.format('YYYY/M/D'))} */}
           <TalabeeField  type='Select'  name='gender'  onChange={(gender) => setGender(gender)}  option={GenderOption}  placeholder='Gender'  />
         </div>
